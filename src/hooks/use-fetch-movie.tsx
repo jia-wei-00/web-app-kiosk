@@ -36,7 +36,7 @@ const useFetchMovie = (page: number = 1, limit: number = 12) => {
       ).then((res) => res.json()),
   });
 
-  const movies = data?.results.slice(0, limit) ?? [];
+  const movies = data?.results?.slice(0, limit) ?? [];
 
   return { movies, isLoading, error };
 };
