@@ -25,14 +25,14 @@ export type Movie = {
   total_results: number;
 };
 
+const apiKey = import.meta.env.VITE_TMDB_API_KEY || process.env.TMDB_API_KEY;
+
 const useFetchMovie = (page: number = 1, limit: number = 12) => {
   const { data, isLoading, error } = useQuery<Movie>({
     queryKey: ["movie"],
     queryFn: () =>
       fetch(
-        `https://api.themoviedb.org/3/trending/movie/day?api_key=${
-          import.meta.env.VITE_TMDB_API_KEY
-        }&page=${page}`
+        `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}&page=${page}`
       ).then((res) => res.json()),
   });
 
