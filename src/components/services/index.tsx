@@ -1,10 +1,10 @@
 import React from "react";
-import { serviceData, type ServiceItem } from "./services";
+import { serviceData } from "./services";
 import ServiceCard from "./card";
 
-const Services: React.FC = () => {
+const Services: React.FC<{ id: string }> = ({ id }) => {
   return (
-    <section className="relative  py-20">
+    <section id={id} className="relative py-20">
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
